@@ -1,0 +1,142 @@
+Microsoft Windows [Version 10.0.19044.1889]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\admin>mongosh
+Current Mongosh Log ID: 66f286b875e3eea3837d45ab
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.2
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.2
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-09-23T11:28:20.810+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use stud
+switched to db stud
+stud> db.createCollection(student)
+ReferenceError: student is not defined
+stud> db.createCollection('student')
+{ ok: 1 }
+stud> db.student.insert({'RollNo':1,'Name':'xyz'})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28d2975e3eea3837d45ac") }
+}
+stud> db.student1.insert({'RollNo':1,'Name':'xyz'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28d4c75e3eea3837d45ad") }
+}
+stud> db.student.insert({'RollNo':2,'Name':'abc'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28e0975e3eea3837d45ae") }
+}
+stud> db.student.insert({'RollNo':3,'Name':'asd'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28e1d75e3eea3837d45af") }
+}
+stud> db.student.insert({'RollNo':4,'Name':'poi'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28e2575e3eea3837d45b0") }
+}
+stud> db.student.insert({'RollNo':5,'Name':'int'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28e2d75e3eea3837d45b1") }
+}
+stud> db.student.insert({'RollNo':5,'Name':'int'},{'RollNo':6,'Name':'mip'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f28e5775e3eea3837d45b2") }
+}
+stud> db.student.find()
+[
+  { _id: ObjectId("66f28d2975e3eea3837d45ac"), RollNo: 1, Name: 'xyz' },
+  { _id: ObjectId("66f28e0975e3eea3837d45ae"), RollNo: 2, Name: 'abc' },
+  { _id: ObjectId("66f28e1d75e3eea3837d45af"), RollNo: 3, Name: 'asd' },
+  { _id: ObjectId("66f28e2575e3eea3837d45b0"), RollNo: 4, Name: 'poi' },
+  { _id: ObjectId("66f28e2d75e3eea3837d45b1"), RollNo: 5, Name: 'int' },
+  { _id: ObjectId("66f28e5775e3eea3837d45b2"), RollNo: 5, Name: 'int' }
+]
+stud> db.student.find.pretty()
+TypeError: db.student.find.pretty is not a function
+stud> db.student.find().pretty()
+[
+  { _id: ObjectId("66f28d2975e3eea3837d45ac"), RollNo: 1, Name: 'xyz' },
+  { _id: ObjectId("66f28e0975e3eea3837d45ae"), RollNo: 2, Name: 'abc' },
+  { _id: ObjectId("66f28e1d75e3eea3837d45af"), RollNo: 3, Name: 'asd' },
+  { _id: ObjectId("66f28e2575e3eea3837d45b0"), RollNo: 4, Name: 'poi' },
+  { _id: ObjectId("66f28e2d75e3eea3837d45b1"), RollNo: 5, Name: 'int' },
+  { _id: ObjectId("66f28e5775e3eea3837d45b2"), RollNo: 5, Name: 'int' }
+]
+stud> db.student.update({'RollNo':5},{$Set:{'RollNo':6}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+MongoServerError: Unknown modifier: $Set. Expected a valid update modifier or pipeline-style update specified as an array
+stud> db.student.update({'RollNo':4},{$set:{'RollNo':6}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+stud> db.student.find().pretty()
+[
+  { _id: ObjectId("66f28d2975e3eea3837d45ac"), RollNo: 1, Name: 'xyz' },
+  { _id: ObjectId("66f28e0975e3eea3837d45ae"), RollNo: 2, Name: 'abc' },
+  { _id: ObjectId("66f28e1d75e3eea3837d45af"), RollNo: 3, Name: 'asd' },
+  { _id: ObjectId("66f28e2575e3eea3837d45b0"), RollNo: 6, Name: 'poi' },
+  { _id: ObjectId("66f28e2d75e3eea3837d45b1"), RollNo: 5, Name: 'int' },
+  { _id: ObjectId("66f28e5775e3eea3837d45b2"), RollNo: 5, Name: 'int' }
+]
+stud> db.student.update({'RollNo':6},{$set:{'RollNo':4}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+stud> db.student.updateOne({'RollNo':5},{$Set:{'RollNo':6}})
+MongoServerError: Unknown modifier: $Set. Expected a valid update modifier or pipeline-style update specified as an array
+stud> db.student.updateOne({'RollNo':5},{$set:{'RollNo':6}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+stud> db.student.find().pretty()
+[
+  { _id: ObjectId("66f28d2975e3eea3837d45ac"), RollNo: 1, Name: 'xyz' },
+  { _id: ObjectId("66f28e0975e3eea3837d45ae"), RollNo: 2, Name: 'abc' },
+  { _id: ObjectId("66f28e1d75e3eea3837d45af"), RollNo: 3, Name: 'asd' },
+  { _id: ObjectId("66f28e2575e3eea3837d45b0"), RollNo: 4, Name: 'poi' },
+  { _id: ObjectId("66f28e2d75e3eea3837d45b1"), RollNo: 6, Name: 'int' },
+  { _id: ObjectId("66f28e5775e3eea3837d45b2"), RollNo: 5, Name: 'int' }
+]
+stud> db.student.remove({'RollNo':6,'Name':'int'})
+DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.
+{ acknowledged: true, deletedCount: 1 }
+stud> db.student.find().pretty()
+[
+  { _id: ObjectId("66f28d2975e3eea3837d45ac"), RollNo: 1, Name: 'xyz' },
+  { _id: ObjectId("66f28e0975e3eea3837d45ae"), RollNo: 2, Name: 'abc' },
+  { _id: ObjectId("66f28e1d75e3eea3837d45af"), RollNo: 3, Name: 'asd' },
+  { _id: ObjectId("66f28e2575e3eea3837d45b0"), RollNo: 4, Name: 'poi' },
+  { _id: ObjectId("66f28e5775e3eea3837d45b2"), RollNo: 5, Name: 'int' }
+]
+stud> db.student.insert({'RollNo':6,'Name':'mip'})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("66f2937375e3eea3837d45b3") }
+}
+stud> db.student.find().pretty()

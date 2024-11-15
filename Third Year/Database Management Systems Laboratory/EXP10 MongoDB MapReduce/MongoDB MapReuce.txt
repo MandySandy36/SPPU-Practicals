@@ -1,0 +1,57 @@
+Microsoft Windows [Version 10.0.22631.4391]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\mehat>mongosh
+Current Mongosh Log ID: 67371fb0a2916a607e0d818f
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3
+Using MongoDB:          8.0.3
+Using Mongosh:          2.3.3
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2024-11-15T13:54:40.788+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+test> use MapReduce
+switched to db MapReduce
+MapReduce> db.createCollection("orders");
+{ ok: 1 }
+MapReduce> db.orders.insertOne({Cust_id:"A123",amount:500,status:"A"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67371fd5a2916a607e0d8190')
+}
+MapReduce> db.orders.insertOne({Cust_id:"A123",amount:250,status:"A"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67371fd5a2916a607e0d8191')
+}
+MapReduce> db.orders.insertOne({Cust_id:"B212",amount:200,status:"A"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67371fd5a2916a607e0d8192')
+}
+MapReduce> db.orders.insertOne({Cust_id:"B212",amount:300,status:"D"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67371fd7a2916a607e0d8193')
+}
+MapReduce> db.orders.mapReduce(function(){emit(this.Cust_id,this.amount);},function(key,values){return Array.sum(values) },{out:"order_total" } );
+DeprecationWarning: Collection.mapReduce() is deprecated. Use an aggregation instead.
+See https://docs.mongodb.com/manual/core/map-reduce for details.
+{ result: 'order_total', ok: 1 }
+MapReduce> db.order_total.find();
+[ { _id: 'B212', value: 500 }, { _id: 'A123', value: 750 } ]
+MapReduce> db.orders.mapReduce(
+... function() { emit(this.Cust_id,this.amount); },
+... function(key,values) { return Array.sum(values) },
+... {
+... query:{status:"A"},
+... out:"order_total1"
+... } );
+{ result: 'order_total1', ok: 1 }
+MapReduce> db.order_total1.find();
+[ { _id: 'A123', value: 750 }, { _id: 'B212', value: 200 } ]
+MapReduce>

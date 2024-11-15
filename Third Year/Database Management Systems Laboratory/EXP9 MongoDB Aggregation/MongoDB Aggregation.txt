@@ -1,0 +1,633 @@
+Microsoft Windows [Version 10.0.22631.4391]
+(c) Microsoft Corporation. All rights reserved.
+C:\Users\mehat>mongosh
+Current Mongosh Log ID: 672e0dfdb09ea62da90d818f
+Connecting to: mongodb://127.0.0.1:27017/?
+directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.3.3
+Using MongoDB: 8.0.3
+Using Mongosh: 2.3.3
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+------
+The server generated these startup warnings when booting
+2024-11-08T18:29:00.112+05:30: Access control is not enabled for the database. Read and write access to data and
+configuration is unrestricted
+------
+data> use College
+switched to db College
+College> db
+College
+College> db.createCollection("ClassTE")
+{ ok: 1 }
+College> db.ClassTE.insertOne({Roll_no:1,name:"A",sub:"TOC",Test:"UT1",Marks:25})
+{
+acknowledged: true,
+insertedId: ObjectId('672e127eb09ea62da90d8194')
+}
+College> db.ClassTE.insertOne({Roll_no:1,name:"A",sub:"TOC",Test:"UT2",Marks:23})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1289b09ea62da90d8195')
+}
+College> db.ClassTE.insertOne({Roll_no:1,name:"A",sub:"DBMS",Test:"UT1",Marks:21})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1298b09ea62da90d8196')
+}
+College> db.ClassTE.insertOne({Roll_no:2,name:"B",sub:"TOC",Test:"UT1",Marks:15})
+{
+acknowledged: true,
+insertedId: ObjectId('672e12c8b09ea62da90d8197')
+}
+College> db.ClassTE.insertOne({Roll_no:2,name:"B",sub:"TOC",Test:"UT2",Marks:19})
+{
+acknowledged: true,
+insertedId: ObjectId('672e12ceb09ea62da90d8198')
+}
+College> db.ClassTE.insertOne({Roll_no:2,name:"B",sub:"DBMS",Test:"UT1",Marks:27})
+{
+acknowledged: true,
+insertedId: ObjectId('672e12deb09ea62da90d8199')
+}
+College> db.ClassTE.insertOne({Roll_no:3,name:"C",sub:"TOC",Test:"UT1",Marks:21})
+{
+acknowledged: true,
+insertedId: ObjectId('672e12f6b09ea62da90d819a')
+}
+College> db.ClassTE.insertOne({Roll_no:3,name:"C",sub:"TOC",Test:"UT2",Marks:20})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1300b09ea62da90d819b')
+}
+College> db.ClassTE.insertOne({Roll_no:3,name:"C",sub:"DBMS",Test:"UT1",Marks:11})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1310b09ea62da90d819c')
+}
+College> db.ClassTE.insertOne({Roll_no:4,name:"D",sub:"TOC",Test:"UT1",Marks:28})
+{
+acknowledged: true,
+insertedId: ObjectId('672e131fb09ea62da90d819d')
+}
+College> db.ClassTE.insertOne({Roll_no:4,name:"D",sub:"TOC",Test:"UT2",Marks:18})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1325b09ea62da90d819e')
+}
+College> db.ClassTE.insertOne({Roll_no:5,name:"E",sub:"TOC",Test:"UT1",Marks:15})
+{
+acknowledged: true,
+insertedId: ObjectId('672e1337b09ea62da90d819f')
+}
+College> db.ClassTE.insertOne({Roll_no:5,name:"E",sub:"TOC",Test:"UT2",Marks:15})
+{
+acknowledged: true,
+insertedId: ObjectId('672e133cb09ea62da90d81a0')
+}
+College> db.ClassTE.find().pretty()
+[
+{
+_id: ObjectId('672e127eb09ea62da90d8194'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 25
+},
+{
+_id: ObjectId('672e1289b09ea62da90d8195'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 23
+},
+{
+_id: ObjectId('672e1298b09ea62da90d8196'),
+Roll_no: 1,
+name: 'A',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e12c8b09ea62da90d8197'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e12ceb09ea62da90d8198'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 19
+},
+{
+_id: ObjectId('672e12deb09ea62da90d8199'),
+Roll_no: 2,
+name: 'B',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 27
+},
+{
+_id: ObjectId('672e12f6b09ea62da90d819a'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e1300b09ea62da90d819b'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 20
+},
+{
+_id: ObjectId('672e1310b09ea62da90d819c'),
+Roll_no: 3,
+name: 'C',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 11
+},
+{
+_id: ObjectId('672e131fb09ea62da90d819d'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 28
+},
+{
+_id: ObjectId('672e1325b09ea62da90d819e'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 18
+},
+{
+_id: ObjectId('672e1337b09ea62da90d819f'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e133cb09ea62da90d81a0'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 15
+}
+]
+College> db.ClassTE.find().count()
+13
+College> db.ClassTE.aggregate({$project:{name:1}})
+[
+{ _id: ObjectId('672e127eb09ea62da90d8194'), name: 'A' },
+{ _id: ObjectId('672e1289b09ea62da90d8195'), name: 'A' },
+{ _id: ObjectId('672e1298b09ea62da90d8196'), name: 'A' },
+{ _id: ObjectId('672e12c8b09ea62da90d8197'), name: 'B' },
+{ _id: ObjectId('672e12ceb09ea62da90d8198'), name: 'B' },
+{ _id: ObjectId('672e12deb09ea62da90d8199'), name: 'B' },
+{ _id: ObjectId('672e12f6b09ea62da90d819a'), name: 'C' },
+{ _id: ObjectId('672e1300b09ea62da90d819b'), name: 'C' },
+{ _id: ObjectId('672e1310b09ea62da90d819c'), name: 'C' },
+{ _id: ObjectId('672e131fb09ea62da90d819d'), name: 'D' },
+{ _id: ObjectId('672e1325b09ea62da90d819e'), name: 'D' },
+{ _id: ObjectId('672e1337b09ea62da90d819f'), name: 'E' },
+{ _id: ObjectId('672e133cb09ea62da90d81a0'), name: 'E' }
+]
+College> db.ClassTE.aggregate({$project:{name:1,sub:1}})
+[
+{ _id: ObjectId('672e127eb09ea62da90d8194'), name: 'A', sub: 'TOC' },
+{ _id: ObjectId('672e1289b09ea62da90d8195'), name: 'A', sub: 'TOC' },
+{ _id: ObjectId('672e1298b09ea62da90d8196'), name: 'A', sub: 'DBMS' },
+{ _id: ObjectId('672e12c8b09ea62da90d8197'), name: 'B', sub: 'TOC' },
+{ _id: ObjectId('672e12ceb09ea62da90d8198'), name: 'B', sub: 'TOC' },
+{ _id: ObjectId('672e12deb09ea62da90d8199'), name: 'B', sub: 'DBMS' },
+{ _id: ObjectId('672e12f6b09ea62da90d819a'), name: 'C', sub: 'TOC' },
+{ _id: ObjectId('672e1300b09ea62da90d819b'), name: 'C', sub: 'TOC' },
+{ _id: ObjectId('672e1310b09ea62da90d819c'), name: 'C', sub: 'DBMS' },
+{ _id: ObjectId('672e131fb09ea62da90d819d'), name: 'D', sub: 'TOC' },
+{ _id: ObjectId('672e1325b09ea62da90d819e'), name: 'D', sub: 'TOC' },
+{ _id: ObjectId('672e1337b09ea62da90d819f'), name: 'E', sub: 'TOC' },
+{ _id: ObjectId('672e133cb09ea62da90d81a0'), name: 'E', sub: 'TOC' }
+]
+College> db.ClassTE.aggregate({$sort:{Roll_no:1}})
+[
+{
+_id: ObjectId('672e127eb09ea62da90d8194'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 25
+},
+{
+_id: ObjectId('672e1289b09ea62da90d8195'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 23
+},
+{
+_id: ObjectId('672e1298b09ea62da90d8196'),
+Roll_no: 1,
+name: 'A',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e12c8b09ea62da90d8197'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e12ceb09ea62da90d8198'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 19
+},
+{
+_id: ObjectId('672e12deb09ea62da90d8199'),
+Roll_no: 2,
+name: 'B',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 27
+},
+{
+_id: ObjectId('672e12f6b09ea62da90d819a'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e1300b09ea62da90d819b'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 20
+},
+{
+_id: ObjectId('672e1310b09ea62da90d819c'),
+Roll_no: 3,
+name: 'C',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 11
+},
+{
+_id: ObjectId('672e131fb09ea62da90d819d'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 28
+},
+{
+_id: ObjectId('672e1325b09ea62da90d819e'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 18
+},
+{
+_id: ObjectId('672e1337b09ea62da90d819f'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e133cb09ea62da90d81a0'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 15
+}
+]
+College> db.ClassTE.aggregate({$sort:{name:1}})
+[
+{
+_id: ObjectId('672e127eb09ea62da90d8194'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 25
+},
+{
+_id: ObjectId('672e1289b09ea62da90d8195'),
+Roll_no: 1,
+name: 'A',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 23
+},
+{
+_id: ObjectId('672e1298b09ea62da90d8196'),
+Roll_no: 1,
+name: 'A',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e12c8b09ea62da90d8197'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e12ceb09ea62da90d8198'),
+Roll_no: 2,
+name: 'B',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 19
+},
+{
+_id: ObjectId('672e12deb09ea62da90d8199'),
+Roll_no: 2,
+name: 'B',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 27
+},
+{
+_id: ObjectId('672e12f6b09ea62da90d819a'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 21
+},
+{
+_id: ObjectId('672e1300b09ea62da90d819b'),
+Roll_no: 3,
+name: 'C',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 20
+},
+{
+_id: ObjectId('672e1310b09ea62da90d819c'),
+Roll_no: 3,
+name: 'C',
+sub: 'DBMS',
+Test: 'UT1',
+Marks: 11
+},
+{
+_id: ObjectId('672e131fb09ea62da90d819d'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 28
+},
+{
+_id: ObjectId('672e1325b09ea62da90d819e'),
+Roll_no: 4,
+name: 'D',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 18
+},
+{
+_id: ObjectId('672e1337b09ea62da90d819f'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT1',
+Marks: 15
+},
+{
+_id: ObjectId('672e133cb09ea62da90d81a0'),
+Roll_no: 5,
+name: 'E',
+sub: 'TOC',
+Test: 'UT2',
+Marks: 15
+}
+]
+College> db.ClassTE.aggregate([{$project:{name:1}},{$limit:3}])
+[
+{ _id: ObjectId('672e127eb09ea62da90d8194'), name: 'A' },
+{ _id: ObjectId('672e1289b09ea62da90d8195'), name: 'A' },
+{ _id: ObjectId('672e1298b09ea62da90d8196'), name: 'A' }
+]
+College> db.ClassTE.aggregate([{$project:{name:1}},{$skip:3}])
+[
+{ _id: ObjectId('672e12c8b09ea62da90d8197'), name: 'B' },
+{ _id: ObjectId('672e12ceb09ea62da90d8198'), name: 'B' },
+{ _id: ObjectId('672e12deb09ea62da90d8199'), name: 'B' },
+{ _id: ObjectId('672e12f6b09ea62da90d819a'), name: 'C' },
+{ _id: ObjectId('672e1300b09ea62da90d819b'), name: 'C' },
+{ _id: ObjectId('672e1310b09ea62da90d819c'), name: 'C' },
+{ _id: ObjectId('672e131fb09ea62da90d819d'), name: 'D' },
+{ _id: ObjectId('672e1325b09ea62da90d819e'), name: 'D' },
+{ _id: ObjectId('672e1337b09ea62da90d819f'), name: 'E' },
+{ _id: ObjectId('672e133cb09ea62da90d81a0'), name: 'E' }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",TOTAL:{$sum:"$Mark
+s"}}}])
+[
+{ _id: 'E', TOTAL: 30 },
+{ _id: 'B', TOTAL: 34 },
+{ _id: 'A', TOTAL: 48 },
+{ _id: 'C', TOTAL: 41 },
+{ _id: 'D', TOTAL: 46 }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",Max:{$max:"$Marks"}}}])
+[
+{ _id: 'E', Max: 15 },
+{ _id: 'B', Max: 19 },
+{ _id: 'C', Max: 21 },
+{ _id: 'D', Max: 28 },
+{ _id: 'A', Max: 25 }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",Min:{$min:"$Marks"}}}])
+[
+{ _id: 'E', Min: 15 },
+{ _id: 'C', Min: 20 },
+{ _id: 'A', Min: 23 },
+{ _id: 'B', Min: 15 },
+{ _id: 'D', Min: 18 }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",Avg:{$avg:"$Marks"}}}])
+[
+{ _id: 'E', Avg: 15 },
+{ _id: 'B', Avg: 17 },
+{ _id: 'A', Avg: 24 },
+{ _id: 'C', Avg: 20.5 },
+{ _id: 'D', Avg: 23 }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",ARRAY:{$push:"$Marks"}}}])
+[
+{ _id: 'E', ARRAY: [ 15, 15 ] },
+{ _id: 'B', ARRAY: [ 15, 19 ] },
+{ _id: 'C', ARRAY: [ 21, 20 ] },
+{ _id: 'D', ARRAY: [ 28, 18 ] },
+{ _id: 'A', ARRAY: [ 25, 23 ] }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$Roll_no",ARRAY:
+{$addToSet:"$Marks"}}}])
+[
+{ _id: 2, ARRAY: [ 15, 19 ] },
+{ _id: 4, ARRAY: [ 28, 18 ] },
+{ _id: 1, ARRAY: [ 25, 23 ] },
+{ _id: 3, ARRAY: [ 21, 20 ] },
+{ _id: 5, ARRAY: [ 15 ] }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",ARRAY:{$first:"$Marks"}}}])
+[
+{ _id: 'E', ARRAY: 15 },
+{ _id: 'B', ARRAY: 15 },
+{ _id: 'A', ARRAY: 25 },
+{ _id: 'C', ARRAY: 21 },
+{ _id: 'D', ARRAY: 28 }
+]
+College> db.ClassTE.aggregate([{$match:{sub:"TOC"}},{$group:{_id:"$name",ARRAY:{$last:"$Marks"}}}])
+[
+{ _id: 'E', ARRAY: 15 },
+{ _id: 'B', ARRAY: 19 },
+{ _id: 'C', ARRAY: 20 },
+{ _id: 'D', ARRAY: 18 },
+{ _id: 'A', ARRAY: 23 }
+]
+College> db.ClassTE.distict("sub")
+TypeError: db.ClassTE.distict is not a function
+College> db.ClassTE.distinct("sub")
+[ 'DBMS', 'TOC' ]
+College> db.ClassTE.count()
+DeprecationWarning: Collection.count() is deprecated. Use countDocuments or estimatedDocumentCount.
+13
+College> db.ClassTE.ensureIndex({Roll_no:1})
+[ 'Roll_no_1' ]
+College> db.ClassTE.find().explain()
+{
+explainVersion: '1',
+queryPlanner: {
+namespace: 'College.ClassTE',
+parsedQuery: {},
+indexFilterSet: false,
+queryHash: '8F2383EE',
+planCacheKey: '7DF350EE',
+optimizationTimeMillis: 0,
+maxIndexedOrSolutionsReached: false,
+maxIndexedAndSolutionsReached: false,
+maxScansToExplodeReached: false,
+prunedSimilarIndexes: false,
+winningPlan: { isCached: false, stage: 'COLLSCAN', direction: 'forward' },
+rejectedPlans: []
+},
+command: { find: 'ClassTE', filter: {}, '$db': 'College' },
+serverInfo: {
+host: 'DESKTOP-IQVGTHS',
+port: 27017,
+version: '8.0.3',
+gitVersion: '89d97f2744a2b9851ddfb51bdf22f687562d9b06'
+},
+serverParameters: {
+internalQueryFacetBufferSizeBytes: 104857600,
+internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+internalQueryProhibitBlockingMergeOnMongoS: 0,
+internalQueryMaxAddToSetBytes: 104857600,
+internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+internalQueryFrameworkControl: 'trySbeRestricted',
+internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+},
+ok: 1
+}
+College> db.ClassTE.find({Roll_no:5}).explain()
+{
+explainVersion: '1',
+queryPlanner: {
+namespace: 'College.ClassTE',
+parsedQuery: { Roll_no: { '$eq': 5 } },
+indexFilterSet: false,
+queryHash: '8319C550',
+planCacheKey: 'DCB0F968',
+optimizationTimeMillis: 0,
+maxIndexedOrSolutionsReached: false,
+maxIndexedAndSolutionsReached: false,
+maxScansToExplodeReached: false,
+prunedSimilarIndexes: false,
+winningPlan: {
+isCached: false,
+stage: 'FETCH',
+inputStage: {
+stage: 'IXSCAN',
+keyPattern: { Roll_no: 1 },
+indexName: 'Roll_no_1',
+isMultiKey: false,
+multiKeyPaths: { Roll_no: [] },
+isUnique: false,
+isSparse: false,
+isPartial: false,
+indexVersion: 2,
+direction: 'forward',
+indexBounds: { Roll_no: [ '[5, 5]' ] }
+}
+},
+rejectedPlans: []
+},
+command: { find: 'ClassTE', filter: { Roll_no: 5 }, '$db': 'College' },
+serverInfo: {
+host: 'DESKTOP-IQVGTHS',
+port: 27017,
+version: '8.0.3',
+gitVersion: '89d97f2744a2b9851ddfb51bdf22f687562d9b06'
+},
+serverParameters: {
+internalQueryFacetBufferSizeBytes: 104857600,
+internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+internalQueryProhibitBlockingMergeOnMongoS: 0,
+internalQueryMaxAddToSetBytes: 104857600,
+internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+internalQueryFrameworkControl: 'trySbeRestricted',
+internalQueryPlannerIgnoreIndexWithCollationForRegex: 1
+},
+ok: 1
+}
+College> db.ClassTE.dropIndex({Roll_no:1})
+{ nIndexesWas: 2, ok: 1 }
+College> db.ClassTE.ensureIndex({Roll_no:1,name:1})
+[ 'Roll_no_1_name_1' ]
+College> db.ClassTE.dropIndex({Roll_no:1,name:1})
+{ nIndexesWas: 2, ok: 1 }
+College>
