@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator - By Mehatab Sanadi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #222;
+            border-radius: 10px;
+            padding: 20px;
+            width: 380px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .calc-text {
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        .calc-text p {
+            font-size: 3.5rem;
+            color: #fff;
+            text-align: right;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 10px;
+            word-wrap: break-word;
+        }
+
+        .calc-keys {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            height: 70px;
+            width: 70px;
+            transition: all 0.3s ease;
+        }
+
+        button:active,
+        button:focus {
+            filter: brightness(120%);
+        }
+
+        button:hover {
+            background-color: #444;
+        }
+
+        .key-zero {
+            grid-column: span 2;
+            width: 100%;
+            border-radius: 30px;
+        }
+
+        .key-operate {
+            background-color: #ff9501;
+        }
+
+        .key-others {
+            background-color: #a6a6a6;
+            color: #000000;
+        }
+
+        .key-others:hover {
+            background-color: #9e9e9e;
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .calc-text p {
+                font-size: 2.5rem;
+            }
+
+            button {
+                font-size: 1.25rem;
+                height: 60px;
+                width: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="calc-text">
+            <p name="user-input" id="user-input">0</p>
+            <div class="calc-keys">
+                <button type="button" class="key-others operations">AC</button>
+                <button type="button" class="key-others operations">DEL</button>
+                <button type="button" class="key-others operations">%</button>
+                <button type="button" class="key-operate operations">/</button>
+                <button type="button" class="numbers">7</button>
+                <button type="button" class="numbers">8</button>
+                <button type="button" class="numbers">9</button>
+                <button type="button" class="key-operate operations">*</button>
+                <button type="button" class="numbers">4</button>
+                <button type="button" class="numbers">5</button>
+                <button type="button" class="numbers">6</button>
+                <button type="button" class="key-operate operations">-</button>
+                <button type="button" class="numbers">1</button>
+                <button type="button" class="numbers">2</button>
+                <button type="button" class="numbers">3</button>
+                <button type="button" class="key-operate operations">+</button>
+                <button type="button" class="key-zero numbers">0</button>
+                <button type="button" class="numbers">.</button>
+                <button type="button" class="key-operate operations">=</button>
+                <button type="button" class="key-others operations">x²</button>
+                <button type="button" class="key-others operations">√</button>
+                <button type="button" class="key-others operations">1/x</button>
+                <button type="button" class="key-others operations">log</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const inputValue = document.getElementById("user-input");
+
+        document.querySelectorAll(".numbers").forEach(function (item) {
+            item.addEventListener("click", function (e) {
+                if (inputValue.innerText === "NaN") {
+                    inputValue.innerText = "";
+                }
+                if (inputValue.innerText === "0") {
+                    inputValue.innerText = "";
+                }
+                inputValue.innerText += e.target.innerHTML.trim();
+            });
+        });
+    
+        document.querySelectorAll(".operations").forEach(function (item) {
+            item.addEventListener("click", function (e) {
+                const operation = e.target.innerHTML;
+    
+                if (operation === "=") {
+                    try {
+                        inputValue.innerText = eval(inputValue.innerText);
+                    } catch {
+                        inputValue.innerText = "ERROR";
+                        alert("Invalid calculation!");
+                    }
+                } else if (operation === "AC") {
+                    inputValue.innerText = "0";
+                } else if (operation === "DEL") {
+                    inputValue.innerText = inputValue.innerText.slice(0, -1);
+                    if (inputValue.innerText === "") {
+                        inputValue.innerText = "0";
+                    }
+                } else if (operation === "%") {
+                    inputValue.innerText += "00";
+                } else if (operation === "x²") {
+                    inputValue.innerText = Math.pow(parseFloat(inputValue.innerText), 2);
+                } else if (operation === "√") {
+                    const value = parseFloat(inputValue.innerText);
+                    if (value < 0) {
+                        alert("Cannot calculate the square root of a negative number!");
+                        inputValue.innerText = "ERROR";
+                    } else {
+                        inputValue.innerText = Math.sqrt(value);
+                    }
+                } else if (operation === "1/x") {
+                    const value = parseFloat(inputValue.innerText);
+                    if (value === 0) {
+                        alert("Cannot divide by zero!");
+                        inputValue.innerText = "ERROR";
+                    } else {
+                        inputValue.innerText = 1 / value;
+                    }
+                } else if (operation === "log") {
+                    const value = parseFloat(inputValue.innerText);
+                    if (value <= 0) {
+                        alert("Logarithm is undefined for zero or negative values!");
+                        inputValue.innerText = "ERROR";
+                    } else {
+                        inputValue.innerText = Math.log10(value);
+                    }
+                } else {
+                    inputValue.innerText += operation;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Our Restaurant, offering delicious food in a comfortable setting.">
+    <title>Welcome to Sunrise City Cafe</title>
+    
+    <!-- External CSS Link -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Internal CSS: Styling the hero section */
+        .hero {
+            background-image: url('sunrise-city-cafe.jpg');
+            background-size: cover;
+            text-align: center;
+            color: white;
+            padding: 100px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            margin-bottom: 30px;
+        }
+
+        .hero .cta-button {
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #ff4500;
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 0px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+
+        #contact input{
+            width: 80%;
+        }
+
+        #contact textarea{
+            width: 80%;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Sunrise City Cafe</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Welcome to Sunrise City Cafe</h1>
+        <p>Delicious meals served in a cozy atmosphere</p>
+        <a href="#menu" class="cta-button">Explore Our Menu</a>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>At Sunrise City Cafe, we specialize in providing high-quality, delicious meals made from fresh ingredients. We offer a cozy and welcoming atmosphere for all our guests.</p>
+        <img src="front-of-restaurant.jpg" alt="Restaurant Interior" width="100%">
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+
+        <!-- Table for menu items -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Dish</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Spaghetti Bolognese</td>
+                    <td>A classic Italian dish made with rich, savory sauce and pasta.</td>
+                    <td>$12.99</td>
+                </tr>
+                <tr>
+                    <td>Caesar Salad</td>
+                    <td>Crisp romaine lettuce topped with creamy dressing and croutons.</td>
+                    <td>$7.99</td>
+                </tr>
+                <tr>
+                    <td>Grilled Salmon</td>
+                    <td>Freshly grilled salmon with a side of sautéed vegetables.</td>
+                    <td>$18.99</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Customer Testimonials</h2>
+        <blockquote>
+            "The food was absolutely amazing, and the service was impeccable. Highly recommend!" - John Doe
+        </blockquote>
+        <blockquote>
+            "A wonderful dining experience. We will definitely return!" - Jane Smith
+        </blockquote>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit_form.php" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Sunrise City Cafe. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* External CSS: Green-Themed Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f1eb;
+}
+
+header {
+    background-color: #d9cbbd;
+    color: #5c4b3b;
+    padding: 15px 20px;
+}
+
+header nav .logo h1 {
+    display: inline;
+    color: #dfcaa0;
+}
+
+header nav .nav-links {
+    list-style: none;
+    float: right;
+}
+
+header nav .nav-links li {
+    display: inline;
+    margin-left: 20px;
+}
+
+header nav .nav-links a {
+    color: #dfcaa0;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav .nav-links a:hover {
+    color: #b29985;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #e3d5c5, #cbb6a7);
+    text-align: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero .cta-button {
+    background-color: #b29985;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border-radius: 5px;
+}
+
+.cta-button:hover {
+    background-color: #8b7765;
+}
+
+/* About Us Section */
+#about {
+    padding: 60px 20px;
+    background-color: linear-gradient(to right, #e3d5c5, #cbb6a7);
+    text-align: center;
+}
+
+#about img {
+    margin-top: 20px;
+    width: 80%;
+    border-radius: 8px;
+    border: 3px solid #d9cbbd;
+}
+
+/* Contact Section */
+#contact {
+    padding: 40px 20px;
+    background-color: #f9f6f2;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f0e7dc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #d1bfa7;
+}
+
+form button {
+    background-color: #b29985;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #8b7765;
+}
+
+/* Footer */
+footer {
+    background-color: #5c4b3b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    color: #d9cbbd;
+}
+
+/* Table Styling */
+section table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+section table th, section table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #e3d5c5;
+}
+
+section table th {
+    background-color: #b29985;
+    color: white;
+}
+
+section table tr:nth-child(even) {
+    background-color: #f5f1eb;
+}
+
+section table tr:hover {
+    background-color: #f0e7dc;
+}
+
+/* Testimonial Styling */
+#testimonials blockquote {
+    background: #f9f6f2;
+    border-left: 5px solid #b29985;
+    margin: 20px;
+    padding: 20px;
+    font-style: italic;
+    color: #5c4b3b;
+}
+
+#testimonials blockquote::before {
+    content: '\201C';
+    font-size: 30px;
+    color: #d1bfa7;
+}
+
+#testimonials blockquote::after {
+    content: '\201D';
+    font-size: 30px;
+    color: #d1bfa7;
+}
+
+/* Section Padding */
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    header nav .nav-links {
+        float: none;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    header nav .nav-links li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    #about img {
+        width: 100%;
+    }
+
+    form input, form textarea {
+        width: 100%;
+    }
+}
+
+/* End of Green-Themed Styling */
