@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f5e9; /* Light green background */
+    color: #2e7d32; /* Dark green text */
+    margin: 0;
+    padding: 0;
+}
+
+h3, h4 {
+    color: #1b5e20; /* Darker green for headings */
+}
+
+div[ng-app] {
+    padding: 20px;
+    background-color: #ffffff; /* White background for the form container */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #388e3c; /* Medium green for labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #c8e6c9; /* Light green border */
+    border-radius: 5px;
+    font-size: 16px;
+    color: #2e7d32; /* Dark green text */
+}
+
+input[type="button"] {
+    background-color: #4caf50; /* Green button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="button"]:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #c8e6c9; /* Light green border */
+}
+
+th {
+    background-color: #a5d6a7; /* Light green header */
+    color: #1b5e20; /* Dark green text */
+}
+
+a {
+    color: #4caf50; /* Green links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div[ng-hide="contacts.length > 0"] {
+    color: #d32f2f; /* Red for no users message */
+    margin-top: 20px;
+}
